@@ -30,3 +30,20 @@ body {
   padding: 0;
   border: 0;
 }
+
+footer > a {
+  color: white;
+}
+
+.front {
+  
+}
+
+.horizon {
+  position: fixed;
+  background-color: lightgrey;
+  height: 35%;
+  width: 100%;
+  bottom: 0;
+  z-index: -1;
+}

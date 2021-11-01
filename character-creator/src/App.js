@@ -6,8 +6,12 @@ import Footer from './components/Footer';
 function App() {
   return (
     <>
+      <div className="front">
       <CharacterEditor />
       <Footer />
+      </div>
+      <div className="horizon">
+      </div>
     </>
   );
 }
