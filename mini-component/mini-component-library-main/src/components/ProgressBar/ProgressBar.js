@@ -6,55 +6,64 @@ import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
 const SIZES = {
-
   small: {
-    "--barHeight": 8 + "px",
-    "--textTop": 10 + "px",
-    "--padding": 2 + "px"
+    height: 8,
+    padding: 0,
+    radius: 4
   },
   medium: {
-    "--barHeight": 12 + "px",
-    "--textTop": 14 + "px",
-    "--padding": 2 + "px"
+    height: 12,
+    padding: 0,
+    radius: 4
   },
   large: {
-    "--barHeight": 24 + "px",
-    "--textTop": 26 + "px",
-    "--padding": 2 + "px"
-  }
-
-}
+    height: 16,
+    padding: 4,
+    radius: 8,
+  },
+};
 
 const ProgressBar = ({ value, size }) => {
   const leftEdge = value >= 98 ? 4 : 0;
   const styles = SIZES[size];
-  return  <OuterBox style={styles}>
-            <InnerBox value={value} leftEdge={leftEdge}>
-            <VisuallyHidden>
-             <ProgressValue> 
-              {value}%
-             </ProgressValue>
-             </VisuallyHidden>
-            </InnerBox>
-          </OuterBox>;
+  return  <Wrapper style={{
+                    '--padding': styles.padding + 'px', 
+                    '--radius' : styles.radius + 'px'
+                      }}>
+            <Bar>           
+              <InnerBar 
+                style={{
+                  '--height': styles.height + 'px', 
+                  '--width' : value + '%'
+                    }}
+                value={value} >
+              <VisuallyHidden>
+              <ProgressValue> 
+                {value}%
+              </ProgressValue> 
+              </VisuallyHidden>
+              </InnerBar>
+            </Bar>
+          </Wrapper>;
 };
 
 
-const OuterBox = styled.div`
-  width: 370px;
-  height: var(--barHeight);
-  position:absolute;
-  background-color: ${COLORS.transparentGray35};
-  border-radius: 4px;
+const Wrapper = styled.div`
+  background-color: ${COLORS.transparentGray15};
+  box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+  border-radius: var(--radius);
+  padding: var(--padding);
 `
 
-const InnerBox = styled.div`
-  width: ${p => p.value/100 * 366}px;
-  height: var(--barHeight);
-  position: relative;
+const Bar = styled.div`
+overflow:hidden;
+`
+
+const InnerBar = styled.div`
+  width: var(--width);
+  height: var(--height);
   background-color:  ${COLORS.primary};
-  left:2px;
-  border-radius: 4px ${p=>p.leftEdge}px ${p=>p.leftEdge}px 4px;
+  border-radius: 4px 0 0 4px;
 `
  
 const ProgressValue = styled.div`
