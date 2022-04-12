@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: raleway;
   --color-gray-100: hsl(270deg 25% 96%);
   --color-gray-300: hsl(270deg 17% 84%);
   --color-gray-500: hsl(270deg 17% 72%);
@@ -43,6 +43,17 @@ footer {
 .logo {
   font-size: 2rem;
   margin-bottom: 16px;
+  font-weight: 900;
+  line-height: 38px;
+}
+
+.sublogo {
+  font-style: italic;
+  color: #D6CFDD;
+}
+
+.sublogo > .person-name {
+ font-weight: 700;
 }
 
 .legal {
