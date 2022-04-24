@@ -13,7 +13,7 @@ const IconInput = ({
   size,
   placeholder,
 }) => {
-  return <Wrapper>
+  return <Wrapper alt="Search">
          <IconWrapper name="iconwrapper">
           <Icon id = "search" strokeWidth={1} size={24}/>
          </IconWrapper>
