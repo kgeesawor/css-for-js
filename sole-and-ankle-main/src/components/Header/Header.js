@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
+import Spacer from '../Spacer'
 
 const Header = () => {
   // Our site features two visual headers, but they should be
@@ -12,7 +13,10 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
+        <Side>
+          <Logo />
+        </Side>
+        <Spacer size={20} />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -21,24 +25,36 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <Side />
       </MainHeader>
     </header>
   );
 };
 
+const Side = styled.div`
+  flex-grow: 1;
+`
+
 const MainHeader = styled.div`
-  padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  height: 72px;
+  padding: 18px 32px;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  margin-left: auto;
+`;
 
 const NavLink = styled.a`
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-transform: uppercase;
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  margin: 0 16px;
 
   &:first-of-type {
     color: ${COLORS.secondary};
