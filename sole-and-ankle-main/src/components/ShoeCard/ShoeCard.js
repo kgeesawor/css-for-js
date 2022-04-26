@@ -32,36 +32,47 @@ const ShoeCard = ({
       : 'default'
 
   return (
-    <Link href={`/shoe/${slug}`}>
-      <Wrapper>
-        <ImageWrapper>
-          <Image alt="" src={imageSrc} />
-        </ImageWrapper>
-        <Spacer size={12} />
-        <Row>
-          <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
-        </Row>
-        <Row>
-          <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-        </Row>
-      </Wrapper>
-    </Link>
+    <Shoewrapper>
+      <Link href={`/shoe/${slug}`}>
+          <Wrapper>
+            <ImageWrapper>
+              <Image alt="" src={imageSrc} />
+            </ImageWrapper>
+            <Spacer size={12} />
+            <Row>
+              <Name>{name}</Name>
+              <Price>{formatPrice(price)}</Price>
+            </Row>
+            <Row>
+              <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+            </Row>
+          </Wrapper>
+        </Link>
+    </Shoewrapper>
   );
 };
+
+const Shoewrapper = styled.div`
+  flex: 1 0 250px;
+
+`
 
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+  border-radius: 1%;
+`;
 
 const Row = styled.div`
   font-size: 1rem;

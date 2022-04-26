@@ -35,12 +35,11 @@ const Input = styled.input`
 
 const SearchIcon = styled(Icon)`
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 0;
   bottom: 0;
   margin: auto;
   width: 16px;
-  height: 16px;
 `;
 
 export default SearchInput;

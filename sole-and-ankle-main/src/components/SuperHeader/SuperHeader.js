@@ -23,19 +23,31 @@ const SuperHeader = () => {
 };
 
 const Wrapper = styled.div`
-  font-size: 0.875rem;
+  font-size: 14px;
+  font-weight: 500px;
+  padding: 8px 32px;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
+  display: flex;
+  justify-content: space-evenly;
+  height: 40px;
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
+  display: flex;
+  align-items: center;
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`
   color: inherit;
   text-decoration: none;
   outline-offset: 2px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+
 
   &:not(:focus-visible) {
     outline: none;
