@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { QUERIES, WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -43,14 +43,33 @@ const ShoeIndex = ({ sortId, setSortId }) => {
 };
 
 const Wrapper = styled.div`
+  z-index:0;
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+  isolation: isolate;
 `;
+
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    position: absolute;
+    left: 1px;
+    top: 120px;
+    padding-left: 32px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    z-index:0;
+    display: absolute;
+    padding-left: 16px;
+    left: 1px;
+    top: 108px;
+    }
+
 `;
 
 const MainColumn = styled.div`
@@ -61,6 +80,13 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: flex-end;
+  }
+  @media ${QUERIES.phoneAndSmaller} {
+    align-items: flex-end;
+  }
+
 `;
 
 const Title = styled.h2`
