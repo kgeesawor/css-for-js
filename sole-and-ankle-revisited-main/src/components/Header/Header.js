@@ -31,6 +31,9 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
         <IconWrapper>
@@ -61,9 +64,10 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
   gap: 36px;
+  overflow: auto;
+
 
   @media ${QUERIES.tabletAndSmaller} {
     border-top: 4px solid ${COLORS.gray[900]};
@@ -91,12 +95,11 @@ const IconWrapper = styled.div`
   }
 
 `
-
-
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem,8.1vw - 4rem,3rem);
   margin: 0px 48px;
+  justify-content:space-between;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
@@ -109,11 +112,11 @@ const Side = styled.div`
 `;
 
 const NavLink = styled.a`
-  font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  font-size: 1.125rem;
 
   &:first-of-type {
     color: ${COLORS.secondary};
